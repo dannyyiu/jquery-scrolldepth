@@ -5,7 +5,7 @@ Scroll Depth is a Google Analytics plugin that tracks how far users are scrollin
 
 ## Fork Specific
 This fork adds the following functionality:
-* `midPage` option set to `true` changes scrollDistance to track middle of page instead of bottom.
+* `midPage` option set to `true` changes scrollDistance to track middle of window instead of bottom.
 
 ## Contributing
 Bug reports and code contributions are welcome. Please see [contributing.md](https://github.com/robflaherty/jquery-scrolldepth/blob/master/contributing.md).
