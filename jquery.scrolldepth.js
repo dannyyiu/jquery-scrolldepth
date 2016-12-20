@@ -34,7 +34,8 @@
       gaGlobal: false,
       gtmOverride: false,
       trackerName: false,
-      dataLayer: 'dataLayer'
+      dataLayer: 'dataLayer',
+      midPage: false  // Option for tracking mid-page instead of bottom
     };
 
     var $window = $(window),
@@ -297,6 +298,15 @@
 
             // Timing
             timing = +new Date - startTime;
+
+          // Recalculate scrollDistance if midPage option selected
+          if (options.midPage) {
+            // If scrolled and not at bottom of page
+            if (scrollDistance < docHeight && scrollDistance > winHeight) {
+              // Subtract half of window height from scroll distance
+              scrollDistance -= Math.round(winHeight/2);
+            }
+          }
 
           // If all marks already hit, unbind scroll event
           if (cache.length >= options.elements.length + (options.percentage ? 4:0)) {
